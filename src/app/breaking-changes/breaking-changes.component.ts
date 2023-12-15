@@ -14,7 +14,4 @@ import { escapeHtml } from '../public/utils/utils';
 export default class BreakingChangesComponent {
   title = TYPE_TITLE_MAP.get(ROUTE_TYPE.BREAKING_CHANGE);
   escapeHtml = escapeHtml;
-  navigationExample = `
-  router.navigate([], {relativeTo: route, queryParams: newQueryParams})
-  `;
 }
