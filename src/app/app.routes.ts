@@ -8,6 +8,16 @@ export const routes: Routes = [
     title: 'Angular 17'
   },
   {
+    path: 'control-flow',
+    loadComponent: () => import('../app/control-flow/control-flow.component'),
+    title: 'Angular 17 - control flow'
+  },
+  {
+    path: 'deferrable-views',
+    loadComponent: () => import('../app/deferrable-views/deferrable-views.component'),
+    title: 'Angular 17 - deferrable views'
+  },
+  {
     path: 'notes',
     loadComponent: () => import('../app/notes/notes.component'),
     title: 'Angular 17 - notes'

@@ -1,0 +1,141 @@
+<div class="base-container">
+  <div class="title">{{ title }}</div>
+
+  <!-- Introduction -->
+  <app-section-container>
+    <div class="title">1. Introduction</div>
+    <div class="description-container">
+      <div class="item">
+        The control-flow is a block template syntax for improving the developing experience of
+        *ngIf, *ngSwitch, and *ngFor with “&#64;-syntax”.
+      </div>
+      <div class="item">
+        The following table show the comparision between control-flow and traditional ng-for.
+        <a href="https://krausest.github.io/js-framework-benchmark/current.html">
+          (Reference)
+        </a>
+      </div>
+      <div class="image-container">
+        <img src="../../assets/image/benchmark.png" alt="">
+      </div>
+    </div>
+  </app-section-container>
+
+  <!-- for -->
+  <app-section-container>
+    <div class="title">2. *ngFor vs &#64;For</div>
+    <div class="description-container">
+      <ul>
+        <li>
+          <div class="item">
+            Traverse the list with *ngFor.
+          </div>
+          <div class="item">
+            <pre>
+              <code [innerHTML]="escapeHtml(ngForCode)"></code>
+            </pre>
+          </div>
+        </li>
+        <li>
+          <div class="item">
+            Traverse the list with &#64;For.
+          </div>
+          <div class="item">
+            <pre>
+              <code [innerHTML]="escapeHtml(controlFlowForCode)"></code>
+            </pre>
+          </div>
+        </li>
+        <li>
+          <div class="item">
+            The following result is the traversal of the list with &#64;For.
+          </div>
+          <div class="item">
+            <ul>
+              @for (item of items; track item.id) {
+              <li>
+                {{ item.name }}
+              </li>
+              } @empty {
+              <div>Empty</div>
+              }
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </app-section-container>
+
+  <!-- for -->
+  <app-section-container>
+    <div class="title">3. *ngif vs &#64;If</div>
+    <div class="description-container">
+      <ul>
+        <li>
+          <div class="item">
+            Traverse the list with *ngif.
+          </div>
+          <div class="item">
+            <pre>
+              <code [innerHTML]="escapeHtml(ngIfCode)"></code>
+            </pre>
+          </div>
+        </li>
+        <li>
+          <div class="item">
+            Traverse the list with &#64;If.
+          </div>
+          <div class="item">
+            <pre>
+              <code [innerHTML]="escapeHtml(controlFlowIfCode)"></code>
+            </pre>
+          </div>    
+        </li>
+        <li>
+          <div class="item"></div>
+          <div class="item">
+            @if (hasData) {
+              <table>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                </tr>
+                @for (data of items; track data.id) {
+                  <tr>
+                    <td>
+                      {{data.id}}
+                    </td>
+                    <td>
+                      {{data.name}}
+                    </td>
+                  </tr>
+                }
+              </table>
+            } @else {
+              <div>data not found</div>
+            }
+          </div>
+        </li>
+      </ul>
+    </div>
+  </app-section-container>
+
+  <!-- reference -->
+  <app-section-container>
+    <div class="title">Reference</div>
+    <div class="content-container">
+      <ul>
+        <li>
+          <a href="https://blog.angular.io/meet-angulars-new-control-flow-a02c6eee7843">
+            Meet Angular's New Control Flow
+          </a>
+        </li>
+        <li>
+          <a href="https://medium.com/ngconf/make-trackby-easy-to-use-a3dd5f1f733b">
+            Make TrackBy Easy to Use!
+          </a>
+        </li>
+      </ul>
+    </div>
+  </app-section-container>
+</div>
