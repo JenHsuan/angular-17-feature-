@@ -3,7 +3,7 @@
 
   <!-- Introduction -->
   <app-section-container>
-    <div class="title">1. Introduction</div>
+    <div class="title">Introduction</div>
     <div class="description-container">
       <div class="item">
         The control-flow is a block template syntax for improving the developing experience of
@@ -23,77 +23,94 @@
 
   <!-- for -->
   <app-section-container>
-    <div class="title">2. *ngFor vs &#64;For</div>
+    <div class="title">&#64;for block - repeaters</div>
     <div class="description-container">
-      <ul>
-        <li>
-          <div class="item">
-            Traverse the list with *ngFor.
-          </div>
-          <div class="item">
-            <pre>
-              <code [innerHTML]="escapeHtml(ngForCode)"></code>
-            </pre>
-          </div>
-        </li>
-        <li>
-          <div class="item">
-            Traverse the list with &#64;For.
-          </div>
-          <div class="item">
-            <pre>
-              <code [innerHTML]="escapeHtml(controlFlowForCode)"></code>
-            </pre>
-          </div>
-        </li>
-        <li>
-          <div class="item">
-            The following result is the traversal of the list with &#64;For.
-          </div>
-          <div class="item">
+      <div class="item">
+        Traverse the list with *ngFor (traditional way)
+        <div>
+          <pre>
+            <code [highlight]="ngForHtmlExample" [languages]="['html']" [lineNumbers]="true"></code>
+          </pre>
+          <pre>
+            <code [highlight]="ngForJsExample" [languages]="['typescript']" [lineNumbers]="true"></code>
+          </pre>
+        </div>
+      </div>
+      <div class="item">
+        There are a few features of &#64;for block - repeaters (new way)
+        <ul>
+          <li>track (line 2)</li>
+          <li>$index and other contextual variables (line 2)
+            <a href="https://angular.io/guide/control_flow">(reference)</a>
+          </li>
+          <li>empty block (line 6)</li>
+        </ul>
+        <div>
+          <pre>
+            <code
+              [highlight]="controlFlowForCode"
+              [languages]="['html']"
+              [lineNumbers]="true"
+            >
+            </code>
+          </pre>
+        </div>
+      </div>
+      <div class="item">
+        The following result is the traversal of the list with &#64;For.
+        <div class="demo-container item">
+          <div>
             <ul>
-              @for (item of items; track item.id) {
-              <li>
-                {{ item.name }}
-              </li>
+              @for (item of items; track item.id; let idx = $index) {
+                <li>
+                  {{ item.name }}: {{ idx }}
+                </li>
               } @empty {
-              <div>Empty</div>
+                <div>Empty</div>
               }
             </ul>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </app-section-container>
 
-  <!-- for -->
+  <!-- if -->
   <app-section-container>
-    <div class="title">3. *ngif vs &#64;If</div>
+    <div class="title">&#64;if block conditionals</div>
     <div class="description-container">
-      <ul>
-        <li>
-          <div class="item">
-            Traverse the list with *ngif.
-          </div>
-          <div class="item">
-            <pre>
-              <code [innerHTML]="escapeHtml(ngIfCode)"></code>
-            </pre>
-          </div>
-        </li>
-        <li>
-          <div class="item">
-            Traverse the list with &#64;If.
-          </div>
-          <div class="item">
-            <pre>
-              <code [innerHTML]="escapeHtml(controlFlowIfCode)"></code>
-            </pre>
-          </div>    
-        </li>
-        <li>
-          <div class="item"></div>
-          <div class="item">
+      <div class="item">
+        Show the table with *ngif.
+        <ul>
+          <li>HTML template
+            <div>
+              <pre>
+                <code
+                  [highlight]="ngIfCode"
+                  [languages]="['html']"  
+                  [lineNumbers]="true"
+                ></code>
+              </pre>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="item">
+        Replace it with &#64;If.
+        <div>
+          <pre>
+            <code
+              [highlight]="controlFlowIfCode"
+              [languages]="['html']"  
+              [lineNumbers]="true"
+            ></code>
+          </pre>
+        </div>
+      </div>
+      <div class="item">
+        The result for showing the table with &#64;If.
+        <div class="demo-container item">
+          <div>
             @if (hasData) {
               <table>
                 <tr>
@@ -115,8 +132,86 @@
               <div>data not found</div>
             }
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
+    </div>
+  </app-section-container>
+
+  <!-- switch -->
+  <app-section-container>
+    <div class="title">&#64;swtich clock - selection</div>
+    <div class="description-container">
+      <div class="item">
+        Display the component conditionally with *ngSwitch.
+        <div>
+          <pre>
+            <code
+              [highlight]="ngSwitchHtmlCode"
+              [languages]="['html']"
+              [lineNumbers]="true"
+            ></code>
+          </pre>
+          <pre>
+            <code
+              [highlight]="ngSwitchJsCode"
+              [languages]="['typescript']"
+              [lineNumbers]="true"
+            ></code>
+          </pre>
+        </div>
+      </div>
+      <div class="item">
+        Replace it with &#64;switch (new way)
+        <div>
+          <pre>
+            <code
+              [highlight]="cfSwitchExampleCode"
+              [languages]="['html']"
+              [lineNumbers]="true"
+            >
+            </code>
+          </pre>
+        </div>
+      </div>
+      <div class="item">
+        Use &#64;switch.
+        <div class="demo-container item">
+          @switch (accessLevel) {
+            @case ('admin') {
+              <div>
+                admin
+              </div>
+            }
+            @case ('moderator') {
+              <div>
+                moderator
+              </div>
+            }
+            @default {
+              <div>
+                default
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </app-section-container>
+
+  <!-- Introduction -->
+  <app-section-container>
+    <div class="title">Migration by using ng cli</div>
+    <div class="description-container">
+      <div class="item"></div>
+      <div class="item">
+        <pre>
+          <code
+            [highlight]="ngCliExample"
+            [languages]="['html']"
+            [lineNumbers]="true"
+          ></code>
+        </pre>
+      </div>
     </div>
   </app-section-container>
 

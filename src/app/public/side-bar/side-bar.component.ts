@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent {
   title = 'Notes of Angular v17';
-  updateTime = '2023/12/15';
+  updateTime = '2023/12/20';
   selectedRoute = ROUTE_TYPE.HOME;
   route: string;
 

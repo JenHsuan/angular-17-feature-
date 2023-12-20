@@ -20,7 +20,7 @@ export const ROUTE_MAP = new Map<string, ROUTE_TYPE>([
 
 export const TYPE_TITLE_MAP = new Map<ROUTE_TYPE, string>([
   [ROUTE_TYPE.HOME, 'Notes of Angular v17'],
-  [ROUTE_TYPE.FLOW_CONTROL, 'Control Flow (Developer Preview)'],
+  [ROUTE_TYPE.FLOW_CONTROL, 'Built-in Control Flow (Developer Preview)'],
   [ROUTE_TYPE.DEFERRABLE_VIEWS, 'Deferrable Views'],
   [ROUTE_TYPE.NOTES, 'Other Features'],
   [ROUTE_TYPE.BREAKING_CHANGE, 'Breaking Changes'],

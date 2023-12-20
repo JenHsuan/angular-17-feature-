@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { ROUTE_TYPE, TYPE_TITLE_MAP } from '../public/route/route.domain';
 import { escapeHtml } from '../public/utils/utils';
 import { SectionContainerComponent } from '../public/section-container/section-container.component';
 import { ControlFlow } from './service/control-flow.domain';
+import { HighlightModule } from 'ngx-highlightjs';
+
+enum AccessLevel {
+  Admin = 'admin',
+  Moderator = 'moderator',
+  User = 'user'
+}
 
 @Component({
   selector: 'app-control-flow',
   standalone: true,
-  imports: [SectionContainerComponent],
+  imports: [SectionContainerComponent, HighlightModule],
   templateUrl: './control-flow.component.html',
   styleUrl: './control-flow.component.scss'
 })
@@ -28,23 +35,24 @@ export default class ControlFlowComponent {
     })
   ];
 
-  ngForCode = `
-  <ul>
+  ngForHtmlExample = 
+  `<ul>
     <li *ngFor="let item of items; trackBy: identify">
       {{ item.name }}
     </li>
-  </ul>
+  </ul>`;
 
-  identify(index: number, item: ControlFlow) {
+  ngForJsExample = 
+  `identify(index: number, item: ControlFlow) {
     return item.id;
   }
   `;
 
-  controlFlowForCode = `
-  <ul>
-    @for (item of items; track item.id) {
+  controlFlowForCode = 
+  `<ul>
+    @for (item of items; track item.id; let idx = $index) {
       <li>
-        {{ item.name }}
+        {{ item.name }}: {{ idx }}
       </li>
     } @empty {
       <div>Empty</div>
@@ -95,11 +103,62 @@ export default class ControlFlowComponent {
   }
   `;
 
+  ngSwitchHtmlCode = `
+  <div [ngSwitch]="accessLevel">
+    <div *ngSwitchCase="admin">
+      admin
+    </div>
+    <div *ngSwitchCase="moderator">
+      moderator
+    </div>
+    <div *ngSwitchDefault>
+      default
+    </div>
+  </div>
+  `;
+
+  ngSwitchJsCode = `
+  get accessLevel() {
+    return AccessLevel.Admin; 
+  }
+
+  enum AccessLevel {
+    Admin = 'admin',
+    Moderator = 'moderator',
+    User = 'user'
+  }`;
+
+  cfSwitchExampleCode = `
+  @switch (accessLevel) {
+    @case ('admin') {
+      <div>
+        admin
+      </div>
+    }
+    @case ('moderator') {
+      <div>
+        moderator
+      </div>
+    }
+    @default {
+      <div>
+        default
+      </div>
+    }
+  }
+  `;
+
+  ngCliExample = `ng generate @angular/core:control-flow`;
+
   identify(index: number, item: ControlFlow) {
     return item.id;
   }
 
   get hasData() {
     return this.items.length > 0;
+  }
+
+  get accessLevel() {
+    return AccessLevel.Admin; 
   }
 }

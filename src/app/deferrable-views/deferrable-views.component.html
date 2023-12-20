@@ -1,6 +1,93 @@
 <div class="base-container">
   <div class="title">{{ title }}</div>
 
+  <!-- Introduction -->
+  <app-section-container>
+    <div class="title">Introduction</div>
+    <div class="description-container">
+      <div class="item">
+        The code (components, directive, pipes) inside the &#64;defer block will be warpped into a dynamic import in the compile-time. 
+      </div>
+      <div class="item">
+        Those components will be lazily loaded in the specific condition (e.g., when entering the viewport).
+      </div>
+    </div>
+  </app-section-container>
+  
+  <!-- defer -->
+  <app-section-container>
+    <div class="title">&#64;defer</div>
+    <div class="description-container defer-container">
+      <div class="item">
+        There are four blocks of the deferrable views.
+      </div>
+      <div class="item">
+        <ul>
+          <li>&#64;defer: specify the condition to load the component (line 2)
+            <table>
+              <tr>
+                <th>statement</th>
+                <th>condition</th>
+              </tr>
+              <tr>
+                <td>on idle</td>
+                <td>lazily load the block when the browser is not doing any heavy lifting</td>
+              </tr>
+              <tr>
+                <td>on immediate</td>
+                <td>start lazily loading automatically, without blocking the browser</td>
+              </tr>
+              <tr>
+                <td>on timer</td>
+                <td>delay loading with a timer</td>
+              </tr>
+              <tr>
+                <td>on interaction</td>
+                <td>enables you to initiate lazy loading when the user interacts with a particular element</td>
+              </tr>
+              <tr>
+                <td>on hover</td>
+                <td>triggers lazy loading when the user hovers an element</td>
+              </tr>
+              <tr>
+                <td>when (expr)</td>
+                <td>enables you to specify your own condition via a boolean expression</td>
+              </tr>
+            </table>
+          </li>
+          <li>
+            &#64;placholder: show the content before the deferrable view was triggered (line 8)
+          </li>
+          <li>
+            &#64;loading: show the content when loading any defered dependencies (line 4)
+          </li>
+          <li>
+            &#64;error: show the content if defered dependencies were failed to load (line 6)
+          </li>
+        </ul>
+      </div>
+      <div class="item">
+        <div>
+          <pre>
+            <code [highlight]="deferExample" [languages]="['html']" [lineNumbers]="true"></code>
+          </pre>
+        </div>
+        <div class="item">The following demo shows how defer works.</div>
+        <div class="demo-container">
+          @defer (on viewport; on timer(5s)){
+            <app-deferrable-view-lazy-load />
+          } @loading (after 100ms; minimum 1s) {
+            <p>Loading...</p>
+          } @error {
+            <p>Failed to load the component</p>
+          } @placeholder (minimum 500ms) {
+            <p>Placeholder content</p>
+          }
+        </div>
+      </div>
+    </div>
+  </app-section-container>
+
   <!-- reference -->
   <app-section-container>
     <div class="title">Reference</div>
