@@ -1,0 +1,89 @@
+<div class="base-container">
+  <div class="title">{{ title }}</div>
+
+  <!-- Introduction -->
+  <app-section-container>
+    <div class="title">Introduction</div>
+    <div class="description-container">
+      <div class="item">
+        In Angular 17, the router supports the View Translation API when navagating between routes.
+      </div>
+    </div>
+  </app-section-container>
+
+  <!-- Introduction -->
+  <app-section-container>
+    <div class="title">Demo</div>
+    <div class="description-container">
+      <button (click)="nav()">Increment</button>
+      <div class="count">{{count}}</div>
+    </div>
+    <!-- <div class="canvas" #canvas>
+      <button (click)="addImage()"></button>
+    </div> -->
+  </app-section-container>
+
+  <!-- Introduction -->
+  <app-section-container>
+    <div class="title">Example Code</div>
+    <div class="description-container">
+      <ul>
+        <li>Update the app.config.ts
+          <pre>
+            <code
+              [highlight]="appCode"
+              [languages]="['typescript']"
+              [lineNumbers]="true"
+            ></code>
+          </pre>
+        </li>
+        <li>Update the component
+          <pre>
+            <code
+              [highlight]="tsCode"
+              [languages]="['typescript']"
+              [lineNumbers]="true"
+            ></code>
+          </pre>
+        </li>
+        <li>Update the HTML
+          <pre>
+            <code
+              [highlight]="htmlCode"
+              [languages]="['html']"
+              [lineNumbers]="true"
+            ></code>
+          </pre>
+        </li>
+        <li>Update the CSS
+          <pre>
+            <code
+              [highlight]="cssCode"
+              [languages]="['html']"
+              [lineNumbers]="true"
+            ></code>
+          </pre>
+        </li>
+      </ul>
+    </div>
+  </app-section-container>
+
+  <!-- reference -->
+  <app-section-container>
+    <div class="title">Reference</div>
+    <div class="content-container">
+      <ul>
+        <li>
+          <a href="https://juejin.cn/post/7289952867053731899">
+            View Transitions API 实用教程
+          </a>
+        </li>
+        <li>
+          <a href="https://blog.angular.io/check-out-angulars-support-for-the-view-transitions-api-3937376cfc19">
+            Check out Angular support for the View Transitions API
+          </a>
+        </li>
+      </ul>
+    </div>
+  </app-section-container>
+</div>

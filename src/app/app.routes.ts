@@ -18,6 +18,36 @@ export const routes: Routes = [
     title: 'Angular 17 - deferrable views'
   },
   {
+    path: 'hydration',
+    loadComponent: () => import('../app/hydration/hydration.component'),
+    title: 'Angular 17 - hydration'
+  },
+  {
+    path: 'esbuild',
+    loadComponent: () => import('../app/esbuild/esbuild.component'),
+    title: 'Angular 17 - esbuild'
+  },
+  {
+    path: 'devtool',
+    loadComponent: () => import('../app/dev-tools/dev-tools.component'),
+    title: 'Angular 17 - Dev tools enhancements'
+  },
+  {
+    path: 'standalone',
+    loadComponent: () => import('../app/standalone/standalone.component'),
+    title: 'Angular 17 - standalone'
+  },
+  {
+    path: 'view-transition',
+    loadComponent: () => import('../app/view-transition/view-transition.component'),
+    title: 'Angular 17 - view transition'
+  },
+  {
+    path: 'view-transition/:count',
+    loadComponent: () => import('../app/view-transition/view-transition.component'),
+    title: 'Angular 17 - view transition'
+  },
+  {
     path: 'notes',
     loadComponent: () => import('../app/notes/notes.component'),
     title: 'Angular 17 - notes'

@@ -1,0 +1,131 @@
+<div class="base-container">
+  <div class="title">{{ title }}</div>
+  
+  <!-- title -->
+  <app-section-container>
+    <div class="title">Introduction</div>
+    <div class="description-container">
+      <div class="item">
+        As we mentioned, Angular provides the non-destructive hydration on the developer preview in <a href="https://marvelous-gnome-0802fa.netlify.app/#/hydration">v16</a>. 
+        In v17, the non-destructive hydration is out of the developer preview. There are some new enhancements.
+      </div>
+    </div>
+  </app-section-container>
+
+  <!-- content -->
+  <app-section-container>
+    <div class="title">Enhancements for SSR</div>
+    <div class="description-container">
+      <div class="item">
+        <b>1. Enable SSR in the new project</b>
+        <div>
+          Instead of installing Angular Universal, we are enable to eanble SSR in the new project by using ng cli.
+        </div>
+        <div>
+          To verify that the application is server-side rendered, run it locally with ng serve. The initial HTML request should contain application content.
+        </div>
+      </div>
+      <div class="item">
+        <pre>
+          <code
+            [highlight]="enableSsrExample"
+            [languages]="['html']"
+            [lineNumbers]="true"
+          ></code>
+        </pre>
+      </div>
+      <div class="item">
+        <b>2. New &#64;angular/ssr package</b>
+        <div>In v16, we install and use &#64;nguniversal/express-engine as the server entry code. 
+          In v17, the &#64;angular/ssr package provides the equivalent functionality to &#64;nguniversal/express-engine which is currently in maintenance mode. </div>
+      </div>
+      <div class="item">
+        The following Angular CLI command can help us to migrate the &#64;nguniversal/express-engine to &#64;angular/ssr.
+      </div>
+      <div class="item">
+        <pre>
+          <code
+            [highlight]="ssrCliCommand"
+            [languages]="['html']"
+            [lineNumbers]="true"
+          ></code>
+        </pre>
+      </div>
+      <div class="item">
+        <b>3. New life-cycle hooks: afterRender & afterNextRender</b>
+        <div>
+          There are two new life-cycle hooks for SSR.
+          <ul>
+            <li>
+              <a href="https://angular.io/api/core/afterRender#description">
+                afterRender
+              </a>: Register a callback to be invoked each time the application finishes rendering. (will execute every time after DOM was updated)
+            </li>
+            <li>
+              <a href="https://angular.io/api/core/afterNextRender">
+                afterNextRender
+              </a>: Register a callback to be invoked the next time the application finishes rendering. (will only executes once)
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        These two function won't be excuted in the SSR mode. However, they will only run in the browser. 
+        <a href="https://angular.io/api/core/AfterViewInit"> So it's suitable to manipulate DOM in these functions.</a>
+      </div>
+      <div class="item">
+        In AfterViewInit, the view in initiated but the DOM may not ready yet. The <a href="https://angular.io/api/core/afterRender#description">
+          afterRender
+        </a> and the <a href="https://angular.io/api/core/afterNextRender">
+          afterNextRender
+        </a> can ensure that the DOM has ready.
+      </div>
+    </div>
+  </app-section-container>
+
+  <!-- demo -->
+  <app-section-container>
+    <div class="title">Demo: afterRender & afterNextRender</div>
+    <div class="demo-container">
+      <div class="item">
+        <ul>
+          <li>Create the following code
+            <div>
+              <pre>
+                <code
+                  [highlight]="newHooksExample"
+                  [languages]="['typescript']"
+                  [lineNumbers]="true"
+                ></code>
+              </pre>
+            </div>
+          </li>
+          <li>Open the developer tool to discover the logs from the life-cycle functions</li>
+        </ul>
+      </div>
+      <span #content>{{ data }}</span>
+    </div>
+    <div class="image-container">
+      <img src="../../assets/image/life-cycle.png" alt="">
+    </div>
+  </app-section-container>
+
+  <!-- reference -->
+  <app-section-container>
+    <div class="title">Reference</div>
+    <div class="content-container">
+      <ul>
+        <li>
+          <a href="https://www.techiediaries.com/angular-afterrender-afternextrender/">
+            Angular 17 AfterRender & afterNextRender
+          </a>
+        </li>
+        <li>
+          <a href="https://dev.to/railsstudent/dom-reading-and-writing-with-new-lifecycle-hooks-in-angular-4n7e">
+            DOM reading and writing with new lifecycle hooks in Angular
+          </a>
+        </li>
+      </ul>
+    </div>
+  </app-section-container>
+</div>

@@ -1,0 +1,40 @@
+<div class="base-container">
+  <div class="title">{{ title }}</div>
+
+  <!-- title -->
+  <app-section-container>
+    <div class="title">Introduction</div>
+    <div class="description-container">
+      <div class="item">
+        The stand-alone component has been out of the developer view in <a href="">v15</a>. 
+        Angular 17 provides schematics to migrate the traditinal applications to stanalone applications.
+      </div>
+    </div>
+  </app-section-container>
+
+  <!-- content -->
+  <app-section-container>
+    <div class="title">How to migrate to the standalone app?</div>
+    <div class="description-container">
+      <code
+        [highlight]="migateStandalone"
+        [languages]="['html']"
+        [lineNumbers]="true"
+      ></code>
+    </div>
+  </app-section-container>
+
+  <!-- reference -->
+  <app-section-container>
+    <div class="title">Reference</div>
+    <div class="content-container">
+      <ul>
+        <li>
+          <a href="https://angular.io/guide/standalone-migration">
+            Migrate an existing Angular project to standalone
+          </a>
+        </li>
+      </ul>
+    </div>
+  </app-section-container>
+</div>

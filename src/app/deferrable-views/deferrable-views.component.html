@@ -69,10 +69,16 @@
       <div class="item">
         <div>
           <pre>
-            <code [highlight]="deferExample" [languages]="['html']" [lineNumbers]="true"></code>
+            <code
+              [highlight]="deferExample"
+              [languages]="['html']"
+              [lineNumbers]="true"
+            ></code>
           </pre>
         </div>
-        <div class="item">The following demo shows how defer works.</div>
+        <div class="item">
+          The following demo shows how defer works. 
+          Before entering the viewport or before timer's up, the placeholder shows first. Once the loading is completed,  Angular removes the placeholder and renders the component.</div>
         <div class="demo-container">
           @defer (on viewport; on timer(5s)){
             <app-deferrable-view-lazy-load />

@@ -1,0 +1,44 @@
+.count {
+  font-family: sans-serif;
+  text-align: center;
+  position: absolute;
+  font-size: 5vw;
+  view-transition-name: count;
+}
+
+@keyframes rotate-out {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes rotate-in {
+  from {
+    transform: rotate(-90deg);
+  }
+}
+
+::view-transition-old(count),
+::view-transition-new(count) {
+  animation-duration: 200ms;
+  animation-name: -ua-view-transition-fade-in, rotate-in;
+}
+
+::view-transition-old(count) {
+  animation-name: -ua-view-transition-fade-out, rotate-out;
+}
+
+
+// .canvas {
+//   view-transition-name: canvas;
+// }
+
+// ::view-transition-old(canvas),
+// ::view-transition-new(canvas) {
+//   animation-duration: 200ms;
+//   animation-name: -ua-view-transition-fade-in, rotate-in;
+// }
+
+// ::view-transition-old(canvas) {
+//   animation-name: -ua-view-transition-fade-out, rotate-out;
+// }
