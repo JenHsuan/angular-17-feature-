@@ -1,20 +1,47 @@
 <div class="base-container">
-  <div class="title">{{ title }}</div>
+  <div class="page-title">{{ title }}</div>
 
   <!-- Introduction -->
   <app-section-container>
     <div class="title">Introduction</div>
     <div class="description-container">
       <div class="item">
-        Angular began to support esbuild from 
-        <a href="https://glistening-cupcake-ead467.netlify.app">
-          Angular v14 (Experimental Feature)
-        </a> 
-          and 
-        <a href="https://marvelous-gnome-0802fa.netlify.app/#/esbuild">
-          Angular v16 (Developer Preview)
-        </a>.
+        This is a timeline of the esbuild + Vite feature.
       </div>
+      <ol class="time-line-container">
+        <li class="time-line-item">
+          <div>
+            <div>v14</div>
+            <a href="https://glistening-cupcake-ead467.netlify.app/">
+              Experimental Feature
+            </a>
+          </div>
+        </li>
+        <li class="time-line-item">
+          <div>
+            <div>v15</div>
+            <a href="https://verdant-fenglisu-1b7a2d.netlify.app/#/esbuild">
+              Experimental Feature
+            </a>
+          </div>
+        </li>
+        <li class="time-line-item">
+          <div>
+            <div>v16</div>
+            <a href="https://marvelous-gnome-0802fa.netlify.app/#/esbuild">
+              Developer Preview 
+            </a>
+          </div>
+        </li>
+        <li class="time-line-item">
+          <div>
+            <div>v17</div>
+            <a href="https://chimerical-cocada-121bf6.netlify.app/#/esbuild">
+              Enhancement
+            </a>
+          </div>
+        </li>
+      </ol>
       <div class="item">
         In v17, esbuild Supported + Vite is out of the Developer Preview and enabled by the default. With SSR & SSG you can observe up to 87% speed improvement in ng build and 80% faster edit-refresh loop in for ng serve.
         <a href="https://blog.angular.io/introducing-angular-v17-4d7033312e4b">(reference)</a>
@@ -25,6 +52,24 @@
     </div>
   </app-section-container>
 
+  <!-- Introduction -->
+  <app-section-container>
+    <div class="title">Migration</div>
+    <div class="description-container">
+      <div class="item">
+        There are a few changes to make for angular.json to enable esbuild + vite for the old project. <a href="https://github.com/wellwind/wellwind.github.io/commit/9d8d2b280c42192a77fb1a9a063247d75bf211f3">(reference)</a>
+        <ul>
+          <li>Use <b>&#64;angular-devkit/build-angular:application</b> for the <b>builder</b> (line 21)</li>
+          <li>Use <b>browser</b> instead of <b>main</b> (line 25)</li>
+          <li>Remove <b>vendorChunk</b> and <b>buildOptimizer</b> (line 152 ~ line 153)</li>
+        </ul>
+      </div>
+      <div class="image-container">
+        <img src="../../assets/image/esbuild_migration.png" alt="">
+      </div>
+    </div>
+  </app-section-container>
+  
   <!-- reference -->
   <app-section-container>
     <div class="title">Reference</div>

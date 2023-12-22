@@ -1,27 +1,24 @@
 <div class="base-container">
   <div class="page-title">{{ title }}</div>
 
-  <!-- Introduction -->
-  <app-section-container>
+   <!-- title -->
+   <app-section-container>
     <div class="title">Introduction</div>
     <div class="description-container">
       <div class="item">
-        The <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API">View Transitions API</a> provides a much easier way of handling the required DOM changes and transition animations. 
-        In Angular 17, the router supports the View Translation API when navagating between routes.
-      </div>
+        The transform option is used to take a passed input value and return s a new value. We used to create the setter and getter functions before v17.
+       </div>
     </div>
   </app-section-container>
+
 
   <!-- Demo -->
   <app-section-container>
     <div class="title">Demo</div>
     <div class="description-container">
       <button (click)="nav()">Increment</button>
-      <div class="count">{{count}}</div>
+      <div class="data">{{count}}</div>
     </div>
-    <!-- <div class="canvas" #canvas>
-      <button (click)="addImage()"></button>
-    </div> -->
   </app-section-container>
 
   <!-- Example code -->
@@ -29,15 +26,6 @@
     <div class="title">Example Code</div>
     <div class="description-container">
       <ul>
-        <li>Update the app.config.ts
-          <pre>
-            <code
-              [highlight]="appCode"
-              [languages]="['typescript']"
-              [lineNumbers]="true"
-            ></code>
-          </pre>
-        </li>
         <li>Update the component
           <pre>
             <code
@@ -56,15 +44,6 @@
             ></code>
           </pre>
         </li>
-        <li>Update the CSS 
-          <pre>
-            <code
-              [highlight]="cssCode"
-              [languages]="['html']"
-              [lineNumbers]="true"
-            ></code>
-          </pre>
-        </li>
       </ul>
     </div>
   </app-section-container>
@@ -75,13 +54,18 @@
     <div class="content-container">
       <ul>
         <li>
-          <a href="https://juejin.cn/post/7289952867053731899">
-            View Transitions API 实用教程
+          <a href="https://dev.to/this-is-angular/angular-transform-your-inputs-at-will-and-simply-12oo">
+            Angular: Transform your inputs at will and simply
           </a>
         </li>
         <li>
-          <a href="https://blog.angular.io/check-out-angulars-support-for-the-view-transitions-api-3937376cfc19">
-            Check out Angular support for the View Transitions API
+          <a href="https://medium.com/@suranisaunak/angulars-transform-option-for-input-values-d3038ecde51b">
+            Angular Transform Option for Input Values
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/angular/angular/issues/14761">
+            Boolean properties as HTML binary attributes #14761
           </a>
         </li>
       </ul>

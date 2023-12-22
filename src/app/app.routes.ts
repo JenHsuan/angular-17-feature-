@@ -48,6 +48,16 @@ export const routes: Routes = [
     title: 'Angular 17 - view transition'
   },
   {
+    path: 'input-transform',
+    loadComponent: () => import('../app/input-transform/input-transform.component'),
+    title: 'Angular 17 - input transform'
+  },
+  {
+    path: 'input-transform/:count',
+    loadComponent: () => import('../app/input-transform/input-transform.component'),
+    title: 'Angular 17 - input transform'
+  },
+  {
     path: 'notes',
     loadComponent: () => import('../app/notes/notes.component'),
     title: 'Angular 17 - notes'
@@ -66,5 +76,10 @@ export const routes: Routes = [
     path: 'documents',
     loadComponent: () => import('../app/documents/documents.component'),
     title: 'Angular 17 - documents'
+  },
+  {
+    path: 'learning-resource',
+    loadComponent: () => import('../app/learning-resource/learning-resource.component'),
+    title: 'Angular 17 - learning resource'
   }
 ];

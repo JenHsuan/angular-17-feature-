@@ -63,16 +63,18 @@ export default class ViewTransitionComponent {
   `;
 
   tsCode = `
-  @Input({ transform: numberAttribute }) count = 0;
-
-  constructor(
-    private router: Router
-  ) {
-  }
-
-  nav() {
-    this.count = !this.count ? 0 : this.count;
-    this.router.navigate(['/view-transition', Number(this.count) + 1]);
+  export default class ViewTransitionComponent {
+    @Input({ transform: numberAttribute }) count = 0;
+  
+    constructor(
+      private router: Router
+    ) {
+    }
+  
+    nav() {
+      this.count = !this.count ? 0 : this.count;
+      this.router.navigate(['/view-transition', Number(this.count) + 1]);
+    }
   }
   `;
 
